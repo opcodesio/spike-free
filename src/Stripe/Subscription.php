@@ -69,7 +69,7 @@ class Subscription extends \Laravel\Cashier\Subscription implements SpikeSubscri
      *
      * @return HasMany|Collection|SubscriptionItem[]
      */
-    public function items()
+    public function items(): HasMany
     {
         return $this->hasMany(Cashier::$subscriptionItemModel);
     }

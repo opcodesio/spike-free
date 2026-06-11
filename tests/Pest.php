@@ -72,8 +72,11 @@ function createBillable($id = null, bool $withEvents = false)
     return $user;
 }
 
-function setupMonthlySubscriptionPlan(array|int $provides, int $price_in_cents = 0, string $payment_provider_price_id = null)
-{
+function setupMonthlySubscriptionPlan(
+    array|int $provides,
+    int $price_in_cents = 0,
+    ?string $payment_provider_price_id = null,
+) {
     if (is_int($provides)) {
         $provides = [CreditAmount::make($provides)];
     }
@@ -92,8 +95,11 @@ function setupMonthlySubscriptionPlan(array|int $provides, int $price_in_cents =
     return Spike::findSubscriptionPlan($payment_provider_price_id);
 }
 
-function setupYearlySubscriptionPlan(array|int $provides, int $price_in_cents = 0, string $payment_provider_price_id = null)
-{
+function setupYearlySubscriptionPlan(
+    array|int $provides,
+    int $price_in_cents = 0,
+    ?string $payment_provider_price_id = null,
+) {
     if (is_int($provides)) {
         $provides = [CreditAmount::make($provides)];
     }
